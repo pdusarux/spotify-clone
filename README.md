@@ -2,6 +2,12 @@
 
 This project is a Spotify clone built with React and Vite, featuring a music player with basic controls and a responsive design.
 
+## Live Demo
+
+You can view a live demo of this Spotify Clone project here: [Spotify Clone Demo](https://pdusarux.github.io/spotify-clone/)
+
+Feel free to explore the features and functionality of the application. Please note that this is a demo project and not affiliated with Spotify.
+
 ## Features
 
 - Play, pause, skip, and go to previous tracks
