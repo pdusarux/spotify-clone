@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { PlayerContext } from "../context/Player.Context";
 
 const DisplayAlbum = () => {
-  const { setTrack } = useContext(PlayerContext);
+  const { playWithID } = useContext(PlayerContext);
   const { id } = useParams();
   const album = albumsData[id];
 
@@ -45,7 +45,7 @@ const DisplayAlbum = () => {
         <div
           key={song.id}
           className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
-          onClick={() => setTrack(song)}
+          onClick={() => playWithID(song.id)}
         >
           <p className="text-white">
             <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>

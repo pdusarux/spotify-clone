@@ -1,10 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { PlayerContext } from "../context/Player.Context";
 
 const Player = () => {
-  const { seekBg, seekBar, playStatus, play, pause, track } =
-    useContext(PlayerContext);
+  const {
+    seekBg,
+    seekBar,
+    playStatus,
+    play,
+    pause,
+    track,
+    time,
+    previous,
+    next,
+    seekSong,
+  } = useContext(PlayerContext);
 
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
@@ -26,6 +36,7 @@ const Player = () => {
             className="w-4 cursor-pointer"
             src={assets.prev_icon}
             alt="previous"
+            onClick={previous}
           />
           {playStatus ? (
             <img
@@ -46,6 +57,7 @@ const Player = () => {
             className="w-4 cursor-pointer"
             src={assets.next_icon}
             alt="next"
+            onClick={next}
           />
           <img
             className="w-4 cursor-pointer"
@@ -54,17 +66,22 @@ const Player = () => {
           />
         </div>
         <div className="flex items-center gap-5">
-          <p>1:06</p>
+          <p>
+            {time.currentTime.minutes}:{time.currentTime.seconds}
+          </p>
           <div
             ref={seekBg}
             className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer"
+            onClick={seekSong}
           >
             <hr
               ref={seekBar}
-              className="w-0 h-1 border-none bg-[#1ed760] rounded-full"
+              className="h-1 border-none bg-[#1ed760] rounded-full transition-all duration-[10ms] ease-linear"
             />
           </div>
-          <p>3:26</p>
+          <p>
+            {time.totalTime.minutes}:{time.totalTime.seconds}
+          </p>
         </div>
       </div>
       <div className="hidden lg:flex items-center gap-2 opacity-75">
