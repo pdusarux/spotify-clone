@@ -1,11 +1,11 @@
-import { useContext } from "react"
-import Display from "./components/Display"
-import Player from "./components/Player"
-import Sidebar from "./components/Sidebar"
-import { PlayerContext } from "./context/Player.Context"
+import { useContext } from "react";
+import Display from "./components/Display";
+import Player from "./components/Player";
+import Sidebar from "./components/Sidebar";
+import { PlayerContext } from "./context/Player.Context";
 
 const App = () => {
-  const { audioRef, track } = useContext(PlayerContext)
+  const { audioRef, track } = useContext(PlayerContext);
 
   return (
     <div className="h-screen bg-black">
@@ -16,7 +16,7 @@ const App = () => {
       <Player />
       <audio ref={audioRef} preload="auto" src={track.file}></audio>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
