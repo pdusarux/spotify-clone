@@ -10,7 +10,6 @@ const Display = () => {
     const isAlbum = location.pathname.includes("/album")
     const albumId = isAlbum ? location.pathname.split("/album/")[1] : ""
     const bgColor = albumsData[Number(albumId)].bgColor
-    console.log(bgColor)
 
     useEffect(() => {
         if (isAlbum) {
